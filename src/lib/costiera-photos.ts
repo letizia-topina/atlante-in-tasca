@@ -1,0 +1,142 @@
+// Optimized copies of personal photographs from the Costiera folder.
+export const costieraPhotos = {
+  "ritratto-positano": {
+    src: "/images/costiera/ritratto-positano.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un nostro ritratto con le case di Positano e le colline sullo sfondo",
+  },
+  "luce-positano": {
+    src: "/images/costiera/luce-positano.webp",
+    width: 1125,
+    height: 2000,
+    alt: "Un nostro ritratto in controluce, con Positano e il mare alle spalle",
+  },
+  "marina-vietri": {
+    src: "/images/costiera/marina-vietri.webp",
+    width: 1920,
+    height: 1080,
+    alt: "La spiaggia e le case di Marina di Vietri affacciate sul mare",
+  },
+  "molo-vietri": {
+    src: "/images/costiera/molo-vietri.webp",
+    width: 1920,
+    height: 1080,
+    alt: "La costa e il molo di Marina di Vietri",
+  },
+  "costa-dal-traghetto": {
+    src: "/images/costiera/costa-dal-traghetto.webp",
+    width: 1731,
+    height: 974,
+    alt: "Le case della Costiera sulle colline, fotografate dal traghetto",
+  },
+  "amalfi-dal-mare": {
+    src: "/images/costiera/amalfi-dal-mare.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Amalfi vista dal mare, con le case tra le montagne e l’acqua",
+  },
+  "lungomare-amalfi": {
+    src: "/images/costiera/lungomare-amalfi.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Il lungomare di Amalfi e le facciate degli edifici sotto il cielo azzurro",
+  },
+  "duomo-amalfi": {
+    src: "/images/costiera/duomo-amalfi.webp",
+    width: 1080,
+    height: 1920,
+    alt: "La facciata della Cattedrale di Sant’Andrea e la scalinata in Piazza Duomo ad Amalfi",
+  },
+  "insieme-amalfi": {
+    src: "/images/costiera/insieme-amalfi.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Il nostro selfie ad Amalfi con il paese alle spalle",
+  },
+  "architetture-positano": {
+    src: "/images/costiera/architetture-positano.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Campanile e facciate colorate di Positano affacciati verso il mare",
+  },
+  "case-positano": {
+    src: "/images/costiera/case-positano.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Le case di Positano sul pendio, con la cupola e il mare sullo sfondo",
+  },
+  "affaccio-positano": {
+    src: "/images/costiera/affaccio-positano.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un nostro ritratto di spalle davanti al panorama di Positano",
+  },
+  "panorama-positano": {
+    src: "/images/costiera/panorama-positano.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Il panorama di Positano, con le case colorate che scendono fino alla spiaggia e al mare",
+  },
+  "sorriso-sul-mare": {
+    src: "/images/costiera/sorriso-sul-mare.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un nostro ritratto accanto alla ringhiera panoramica di Positano",
+  },
+  "ritratto-tra-le-case": {
+    src: "/images/costiera/ritratto-tra-le-case.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un nostro ritratto con il borgo di Positano sullo sfondo",
+  },
+  "barche-positano": {
+    src: "/images/costiera/barche-positano.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Le barche nel mare azzurro davanti alla costa di Positano",
+  },
+  "guardando-il-mare": {
+    src: "/images/costiera/guardando-il-mare.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un nostro ritratto di profilo mentre guardiamo il mare a Positano",
+  },
+  "vicolo-vietri": {
+    src: "/images/costiera/vicolo-vietri.webp",
+    width: 1080,
+    height: 1920,
+    alt: "Un vicolo con scale e pareti colorate a Vietri sul Mare",
+  },
+  "ceramiche-vista-mare": {
+    src: "/images/costiera/ceramiche-vista-mare.webp",
+    width: 1920,
+    height: 1080,
+    alt: "Un parapetto decorato con ceramiche colorate e il panorama del mare a Vietri",
+  },
+  "insieme-sul-traghetto": {
+    src: "/images/costiera/insieme-sul-traghetto.webp",
+    width: 2000,
+    height: 1500,
+    alt: "Noi due a bordo del traghetto, con Positano e la spiaggia sullo sfondo",
+  },
+  "mare-vietri": {
+    src: "/images/costiera/mare-vietri.webp",
+    width: 1500,
+    height: 2000,
+    alt: "Il mare e la costa visti da un belvedere di Vietri sul Mare",
+  },
+  "ritratto-ceramiche": {
+    src: "/images/costiera/ritratto-ceramiche.webp",
+    width: 1500,
+    height: 2000,
+    alt: "Un nostro ritratto accanto al parapetto di ceramiche con il mare sullo sfondo",
+  },
+  "ricordo-vietri": {
+    src: "/images/costiera/ricordo-vietri.webp",
+    width: 1500,
+    height: 2000,
+    alt: "Un nostro ritratto tra ceramiche colorate e panorama sul mare a Vietri",
+  },
+} as const;
+export type CostieraPhotoId = keyof typeof costieraPhotos;

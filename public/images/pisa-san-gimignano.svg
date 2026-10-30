@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000" role="img" aria-labelledby="title desc">
+<title id="title">Pisa e San Gimignano</title><desc id="desc">Una cartolina illustrata con la Torre Pendente e le torri medievali tra le colline toscane.</desc>
+<rect width="1500" height="1000" fill="#efe9d9"/><circle cx="1190" cy="245" r="100" fill="#d6aa63"/>
+<path d="M0 655Q270 425 625 630T1500 545V1000H0Z" fill="#b8be97"/><path d="M0 790Q350 580 780 745T1500 660V1000H0Z" fill="#89966c"/><path d="M0 910Q480 740 930 850T1500 800V1000H0Z" fill="#627450"/>
+<g fill="#b77753" stroke="#805238" stroke-width="4"><path d="M805 666V405H870V666M907 666V335H978V666M1016 666V464H1080V666M1118 666V380H1180V666M1213 666V495H1272V666"/><path d="M765 668V580H1320V668Z" fill="#c39268"/></g>
+<g fill="#554e38"><path d="M828 440h18v30h-18zm0 66h18v30h-18zm103-129h22v36h-22zm0 78h22v36h-22zm0 78h22v36h-22zm106-37h20v31h-20zm102-82h19v34h-19zm0 72h19v34h-19zm91 40h18v30h-18z"/></g>
+<g transform="translate(425 710) rotate(8)"><path d="M-100 0V-390Q0-421 100-390V0Z" fill="#faf5e8" stroke="#b7ab90" stroke-width="5"/><path d="M-76-390V-433Q0-455 76-433V-390" fill="#faf5e8" stroke="#b7ab90" stroke-width="5"/>
+<g fill="none" stroke="#b7ab90" stroke-width="5"><path d="M-100-337Q0-360 100-337M-100-282Q0-305 100-282M-100-227Q0-250 100-227M-100-172Q0-195 100-172M-100-117Q0-140 100-117M-100-62Q0-85 100-62M-108 0H108"/></g>
+<defs><g id="arches" fill="none" stroke="#a79b80" stroke-width="4"><path d="M-78 0v-25q13-24 26 0V0m13 0v-25q13-24 26 0V0m13 0v-25q13-24 26 0V0m13 0v-25q13-24 26 0V0"/></g></defs><use href="#arches" y="-345"/><use href="#arches" y="-290"/><use href="#arches" y="-235"/><use href="#arches" y="-180"/><use href="#arches" y="-125"/><use href="#arches" y="-70"/>
+<path d="M-23 0V-37Q0-70 23-37V0" fill="#696b56"/></g>
+<g fill="#3f563d"><path d="M165 820q-35-100 0-180 35 80 0 180zm1120 20q-35-110 0-190 35 80 0 190zm65 5q-28-80 0-150 28 70 0 150z"/></g>
+<text x="95" y="130" fill="#9d4b35" font-family="Georgia,serif" font-style="italic" font-size="54">Un weekend in Toscana</text><text x="95" y="188" fill="#48513d" font-family="Georgia,serif" font-size="28" letter-spacing="4">PISA · SAN GIMIGNANO</text>
+</svg>
