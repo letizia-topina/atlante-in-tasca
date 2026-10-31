@@ -8,6 +8,8 @@ import remarkGfm from "remark-gfm";
 import { getTrip, getTrips } from "@/lib/trips";
 import { TripPhotos } from "@/components/travel/trip-photos";
 import { SouvenirNote } from "@/components/travel/souvenir-note";
+import { PugliaRoute, PugliaDays } from "@/components/travel/puglia-itinerary";
+import { PugliaPhotos } from "@/components/travel/puglia-photos";
 import { CostieraPhotos } from "@/components/travel/costiera-photos";
 import {
   CostieraRoute,
@@ -94,6 +96,9 @@ export default async function TripPage({
             CostieraPhotos,
             CostieraRoute,
             CostieraDays,
+            PugliaRoute,
+            PugliaDays,
+            PugliaPhotos,
           }}
         />
         <Link className="back-link" href="/#viaggi">

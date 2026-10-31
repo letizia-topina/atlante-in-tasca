@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" width="1500" height="900" role="img" aria-labelledby="title desc">
+<title id="title">Il nostro primo on the road tra Puglia e Matera</title><desc id="desc">Una strada tra campi e pale eoliche, case in pietra e trulli, con un’automobile color terracotta.</desc>
+<rect width="1500" height="900" fill="#efe8d5"/><circle cx="1160" cy="185" r="80" fill="#dbb366"/>
+<path d="M0 420Q180 270 420 400T900 375T1500 330V900H0Z" fill="#d2d5ad"/><path d="M0 580Q370 350 690 520T1500 480V900H0Z" fill="#aebb8f"/><path d="M0 775Q330 540 730 690T1500 610V900H0Z" fill="#82966d"/>
+<g stroke="#848773" stroke-width="6" stroke-linecap="round" fill="none"><path d="M210 295v255m0-255-10-118m10 118 101 65m-101-65-96 61M405 326v158m0-158-7-81m7 81 67 41m-67-41-64 40"/><circle cx="210" cy="295" r="10" fill="#f8f5e9"/><circle cx="405" cy="326" r="7" fill="#f8f5e9"/></g>
+<g fill="#e1c6a1" stroke="#9c8262" stroke-width="3"><path d="M650 475V335h70v140m5 0V285h85v190m6 0V360h68v115m-185-140h150"/><path d="M750 285v-65h30v65"/><path d="M678 475v-42q14-24 28 0v42m39-128h20v28h-20m34-28h20v28h-20m48 25h22v30h-22" fill="#897d5f"/></g>
+<g stroke="#8e8168" stroke-width="3" stroke-linejoin="round"><path d="M1020 550v-110h120v110m35 0V420h140v130" fill="#faf2de"/><path d="m1008 440 72-111 72 111zm154-20 83-132 83 132z" fill="#a69a83"/><path d="M1067 550v-48q13-22 26 0v48m136 0v-54q15-24 30 0v54" fill="#7b7a5d"/><path d="m1080 329 0-15m165-26v-17" fill="none"/></g>
+<path d="M-80 900Q180 695 630 750T1540 650" fill="none" stroke="#e8d6b3" stroke-width="105"/><path d="M-80 900Q180 695 630 750T1540 650" fill="none" stroke="#bfa57b" stroke-width="3" stroke-dasharray="17 21"/>
+<g transform="translate(570 704) rotate(3)" stroke="#743e2c" stroke-width="3" stroke-linejoin="round"><path d="M0 35V10q0-15 18-17l32-47h104l34 48 35 9v32z" fill="#b65e43"/><path d="m66-44-27 38h57v-38zm42 0v38h61l-26-38z" fill="#e4e7d6"/><circle cx="46" cy="35" r="21" fill="#444d3c"/><circle cx="175" cy="35" r="21" fill="#444d3c"/><circle cx="46" cy="35" r="10" fill="#dcccad"/><circle cx="175" cy="35" r="10" fill="#dcccad"/><path d="M-1 14h16m193 0h14" stroke="#f4dba0"/></g>
+<g fill="#f2e4be"><path d="M55 674q-22-37-5-60 20 22 5 60m35-17q-22-37-5-60 20 22 5 60m1270-52q-22-37-5-60 20 22 5 60m35 0q-22-37-5-60 20 22 5 60"/></g>
+</svg>

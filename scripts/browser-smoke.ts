@@ -27,7 +27,7 @@ try {
       ),
     ).toBe(true);
   await page.goto(baseURL, { waitUntil: "networkidle" });
-  await expect(page.locator(".trip-card")).toHaveCount(2);
+  await expect(page.locator(".trip-card")).toHaveCount(3);
   await expect(page.getByRole("heading", { name: title })).toBeVisible();
   await expect(
     page.getByRole("button", { name: "Europa", exact: true }),
@@ -195,6 +195,103 @@ try {
       .screenshot({ path: `${output}/costiera-souvenir-${width}.png` });
     await page.screenshot({
       path: `${output}/costiera-${width}.png`,
+      fullPage: true,
+    });
+  }
+  await page.goto(baseURL, { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: "Italia", exact: false }).click();
+  await expect(page.locator(".trip-card")).toHaveCount(3);
+  await page
+    .getByRole("textbox", { name: "Cerca nei viaggi" })
+    .fill("pale eoliche");
+  await expect(page.locator(".trip-card")).toHaveCount(1);
+  await page.locator('.trip-card a[href="/viaggi/puglia-matera"]').click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Puglia e Matera, il nostro primo viaggio on the road",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".article-cover img")).toHaveAttribute(
+    "src",
+    /matera-luce-sui-sassi/,
+  );
+  await expect(page.locator(".day-card")).toHaveCount(3);
+  await expect(page.locator(".souvenir-note")).toContainText("Pane e focaccia");
+  await expect(page.locator(".souvenir-note")).toContainText(
+    "Forno di Santa Caterina",
+  );
+  await expect(page.locator(".souvenir-note")).toContainText("Taralli");
+  await expect(page.locator(".souvenir-note")).not.toContainText("Cartoline");
+  await expect(page.locator(".photo-album")).toHaveCount(10);
+  await expect(page.locator(".photo-open img")).toHaveCount(32);
+  const sections = await page.locator(".photo-album").evaluateAll((albums) =>
+    albums.map((album) => {
+      let previous = album.previousElementSibling;
+      while (previous && previous.tagName !== "H2")
+        previous = previous.previousElementSibling;
+      return previous?.id;
+    }),
+  );
+  expect(sections).toEqual([
+    "matera",
+    "matera",
+    "bari",
+    "bari",
+    "bari",
+    "bari",
+    "alberobello",
+    "alberobello",
+    "alberobello",
+    "forno-altamura",
+  ]);
+  const bakery = page.getByRole("region", {
+    name: "Il Forno di Santa Caterina",
+    exact: true,
+  });
+  await expect(bakery.locator(".photo-open img")).toHaveCount(3);
+  const bakeryOpener = bakery.getByRole("button", {
+    name: "Ingrandisci: Le focacce sul banco",
+    exact: true,
+  });
+  await bakeryOpener.click();
+  const bakeryDialog = page.getByRole("dialog", {
+    name: "Il Forno di Santa Caterina",
+    exact: true,
+  });
+  await expect(bakeryDialog).toBeVisible();
+  await page.keyboard.press("ArrowRight");
+  await expect(
+    bakeryDialog.getByText("L’ingresso del forno", { exact: true }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(bakeryOpener).toBeFocused();
+  await page
+    .locator(".route-stops")
+    .getByRole("link", { name: "Matera", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#matera$/);
+  await page
+    .locator(".route-stops")
+    .getByRole("link", { name: "Alberobello", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#alberobello$/);
+  await decodeImages();
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await noOverflow();
+    await page
+      .locator(".route-figure")
+      .screenshot({ path: `${output}/puglia-route-${width}.png` });
+    await page
+      .locator(".article-cover")
+      .screenshot({ path: `${output}/puglia-cover-${width}.png` });
+    await bakery.screenshot({ path: `${output}/puglia-forno-${width}.png` });
+    await page
+      .locator(".souvenir-note")
+      .screenshot({ path: `${output}/puglia-souvenir-${width}.png` });
+    await page.screenshot({
+      path: `${output}/puglia-${width}.png`,
       fullPage: true,
     });
   }
