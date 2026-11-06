@@ -1700,3 +1700,196 @@ body:has(.photo-dialog[open]) {
     gap: 20px 14px;
   }
 }
+
+/* Museum collages keep each photograph intact, including its painted frame. */
+.photo-grid--museum,
+.photo-grid--mosaic {
+  display: block;
+  columns: 3;
+  column-gap: 14px;
+}
+.photo-grid--museum .photo-print,
+.photo-grid--mosaic .photo-print {
+  display: block;
+  vertical-align: top;
+  width: 100%;
+  margin: 0 0 14px;
+  break-inside: avoid;
+}
+.photo-album--museum {
+  padding: 23px 20px 7px;
+  background: #eeece2;
+  border: 1px solid #ddd9c9;
+  border-radius: 8px;
+}
+.photo-album--museum .album-note {
+  margin-bottom: 15px;
+}
+.route-figure--paris {
+  background: #edf0e8;
+  border-color: #d7dfd3;
+}
+.paris-skyline {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+.article-body .route-stops--paris {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+.weekend-plan--five .day-card:last-child {
+  grid-column: 1 / -1;
+  background: #e8eeea;
+}
+.europe-header {
+  padding-block: 50px 10px;
+}
+.europe-header .back-link {
+  margin-bottom: 30px;
+}
+.europe-header h1 {
+  font-size: clamp(44px, 5vw, 67px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 18px 0 22px;
+}
+.europe-header h1 em {
+  color: var(--primary);
+}
+.europe-header > p:last-child {
+  max-width: 580px;
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.footer-region-link,
+.europe-category-link {
+  color: var(--primary);
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.europe-category-link {
+  display: inline-block;
+  margin-bottom: 22px;
+}
+@media (min-width: 761px) {
+  .trip-grid:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .trip-grid:has(> :nth-child(4):last-child) .card-image {
+    height: 300px;
+  }
+}
+@media (max-width: 760px) {
+  .article-body .route-stops--paris {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+  }
+  .weekend-plan--five .day-card:last-child {
+    grid-column: auto;
+  }
+}
+@media (max-width: 640px) {
+  .photo-grid--museum,
+  .photo-grid--mosaic {
+    columns: 2;
+    column-gap: 12px;
+  }
+  .photo-album--museum {
+    padding: 18px 12px 7px;
+  }
+  .photo-grid--museum .photo-print,
+  .photo-grid--mosaic .photo-print {
+    margin-bottom: 12px;
+  }
+  .europe-header {
+    padding-top: 34px;
+  }
+}
+
+.photo-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.photo-grid--centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+}
+.photo-grid--centered .photo-print {
+  flex: 0 0 calc(33.333333% - 12px);
+}
+@media (max-width: 640px) {
+  .photo-grid--centered {
+    gap: 14px;
+  }
+  .photo-grid--centered .photo-print {
+    flex-basis: calc(50% - 7px);
+  }
+}
+
+.related-trip {
+  margin: 32px 0 40px;
+  padding: 28px;
+  border: 1px solid #d5ddcd;
+  border-radius: 9px;
+  background: #edf1e5;
+}
+.article-body .related-trip > .eyebrow {
+  margin: 0 0 11px;
+  color: #6b7956;
+  font-size: 9px;
+}
+.article-body .related-trip h3 {
+  margin: 0 0 13px;
+  font-size: 28px;
+  line-height: 1.25;
+}
+.article-body .related-trip-copy p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #5d6952;
+  margin: 0 0 17px;
+}
+.article-body .related-trip-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 14px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.nordic-skyline {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 18px;
+  border-radius: 6px;
+}
+.route-figure--nordic {
+  background: #edf0e5;
+}
+.weekend-plan--single {
+  grid-template-columns: 1fr;
+  max-width: 620px;
+  margin-inline: auto;
+}
+@media (max-width: 640px) {
+  .related-trip {
+    padding: 23px;
+  }
+  .article-body .related-trip h3 {
+    font-size: 25px;
+  }
+}

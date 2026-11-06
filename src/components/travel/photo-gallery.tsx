@@ -37,7 +37,9 @@ export function PhotoGallery({ album }: { album: PhotoAlbum }) {
       aria-label={album.label}
     >
       <div className="album-heading">
-        <span className="eyebrow">DAL NOSTRO ALBUM</span>
+        <span className="eyebrow">
+          {album.layout === "museum" ? "COLLAGE DAL MUSEO" : "DAL NOSTRO ALBUM"}
+        </span>
         <span>{album.label}</span>
       </div>
       <div className={`photo-grid photo-grid--${album.layout}`}>
@@ -60,7 +62,9 @@ export function PhotoGallery({ album }: { album: PhotoAlbum }) {
                   width={photo.width}
                   height={photo.height}
                   sizes={
-                    album.layout === "four"
+                    album.layout === "four" ||
+                    album.layout === "museum" ||
+                    album.layout === "mosaic"
                       ? "(max-width: 640px) 45vw, 240px"
                       : "(max-width: 640px) 90vw, 600px"
                   }

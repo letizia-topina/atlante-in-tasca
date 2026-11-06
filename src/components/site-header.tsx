@@ -22,6 +22,9 @@ export function SiteHeader() {
         <Link href="/#destinazioni" className="optional-nav">
           Destinazioni
         </Link>
+        <Link href="/europa" className="optional-nav">
+          Europa
+        </Link>
         <Link href="/chi-siamo">Chi siamo</Link>
       </nav>
       <Link
@@ -43,6 +46,9 @@ export function SiteFooter() {
         atlante in tasca.
       </Link>
       <p>Due zaini. Un mondo di storie.</p>
+      <Link href="/europa" className="footer-region-link">
+        Viaggi in Europa
+      </Link>
       <span>
         Fatto con curiosità e un pizzico di{" "}
         <span className="terracotta">♥</span>

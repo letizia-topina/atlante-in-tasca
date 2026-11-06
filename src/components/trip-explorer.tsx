@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,6 +68,11 @@ export function TripExplorer({ trips }: { trips: Trip[] }) {
         {filtered.length === 1 ? "storia da scoprire" : "storie da scoprire"}
         {query && ` per “${query}”`}
       </p>
+      {region === "Europa" && (
+        <Link href="/europa" className="europe-category-link">
+          Apri il diario dei nostri viaggi in Europa ↗
+        </Link>
+      )}
       {filtered.length ? (
         <div className="trip-grid">
           {filtered.map((trip) => (

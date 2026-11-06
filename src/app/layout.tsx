@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it">
+    <html lang="it" data-scroll-behavior="smooth">
       <body>
         <a href="#main" className="skip-link">
           Vai al contenuto

@@ -8,6 +8,16 @@ import remarkGfm from "remark-gfm";
 import { getTrip, getTrips } from "@/lib/trips";
 import { TripPhotos } from "@/components/travel/trip-photos";
 import { SouvenirNote } from "@/components/travel/souvenir-note";
+import { RelatedTrip } from "@/components/travel/related-trip";
+import { CopenhagenPhotos } from "@/components/travel/copenaghen-photos";
+import { MalmoPhotos } from "@/components/travel/malmo-photos";
+import {
+  CopenhagenOverview,
+  CopenhagenDays,
+  MalmoDay,
+} from "@/components/travel/nordic-itinerary";
+import { ParisPhotos } from "@/components/travel/paris-photos";
+import { ParisOverview, ParisDays } from "@/components/travel/paris-itinerary";
 import { PugliaRoute, PugliaDays } from "@/components/travel/puglia-itinerary";
 import { PugliaPhotos } from "@/components/travel/puglia-photos";
 import { CostieraPhotos } from "@/components/travel/costiera-photos";
@@ -69,7 +79,9 @@ export default async function TripPage({
               timeZone: "UTC",
             }).format(new Date(trip.date))}
           </time>
-          <span>{trip.duration} giorni</span>
+          <span>
+            {trip.duration} {trip.duration === 1 ? "giorno" : "giorni"}
+          </span>
           <span>{trip.readingMinutes} min di lettura</span>
         </div>
       </header>
@@ -93,12 +105,21 @@ export default async function TripPage({
             TuscanyWeekend,
             TripPhotos,
             SouvenirNote,
+            RelatedTrip,
+            CopenhagenOverview,
+            CopenhagenDays,
+            MalmoDay,
+            MalmoPhotos,
+            CopenhagenPhotos,
             CostieraPhotos,
             CostieraRoute,
             CostieraDays,
             PugliaRoute,
             PugliaDays,
             PugliaPhotos,
+            ParisPhotos,
+            ParisOverview,
+            ParisDays,
           }}
         />
         <Link className="back-link" href="/#viaggi">

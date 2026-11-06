@@ -25,7 +25,9 @@ export function TripCard({ trip }: { trip: Trip }) {
           <p className="eyebrow">
             <MapPin size={12} />
             {trip.destination}
-            <span>· {trip.duration} giorni</span>
+            <span>
+              · {trip.duration} {trip.duration === 1 ? "giorno" : "giorni"}
+            </span>
           </p>
           <h3>{trip.title}</h3>
           <p className="description">{trip.description}</p>

@@ -126,8 +126,8 @@ export default async function Home() {
           <p className="eyebrow">PIACERE, SIAMO NOI</p>
           <h2>Due zaini, tante deviazioni.</h2>
           <p>
-            Da Latina alla Toscana, alla Costiera e alla Puglia: raccogliamo qui
-            i nostri viaggi, un ricordo alla volta.
+            Dall’Italia alle luci di Parigi: raccogliamo qui i nostri viaggi, un
+            ricordo alla volta.
           </p>
         </div>
         <Link href="/chi-siamo" className="text-link">

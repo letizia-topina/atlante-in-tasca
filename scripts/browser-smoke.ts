@@ -27,11 +27,11 @@ try {
       ),
     ).toBe(true);
   await page.goto(baseURL, { waitUntil: "networkidle" });
-  await expect(page.locator(".trip-card")).toHaveCount(3);
+  await expect(page.locator(".trip-card")).toHaveCount(6);
   await expect(page.getByRole("heading", { name: title })).toBeVisible();
   await expect(
     page.getByRole("button", { name: "Europa", exact: true }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await expect(
     page.getByText(/Unsplash|stori[ae] di esempio|treni presi al volo/i),
   ).toHaveCount(0);
@@ -295,6 +295,242 @@ try {
       fullPage: true,
     });
   }
+  await page.goto(baseURL, { waitUntil: "networkidle" });
+  await page.getByRole("button", { name: "Europa", exact: true }).click();
+  await expect(page.locator(".trip-card")).toHaveCount(3);
+  await page.locator(".europe-category-link").click();
+  await expect(page).toHaveURL(/\/europa$/);
+  await expect(
+    page.getByRole("heading", {
+      name: "L’Europa, un ricordo alla volta.",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".trip-card")).toHaveCount(3);
+  await page.locator('.trip-card a[href="/viaggi/parigi-natale"]').click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Parigi a Natale, cinque giorni tra musei e luci sulla Senna",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".article-cover img")).toHaveAttribute(
+    "src",
+    /eiffel-notte/,
+  );
+  await expect(page.locator(".day-card")).toHaveCount(5);
+  await expect(page.locator(".photo-album")).toHaveCount(20);
+  await expect(page.locator(".photo-open img")).toHaveCount(76);
+  await expect(page.locator(".photo-album--museum")).toHaveCount(4);
+  for (const [name, prefix, count] of [
+    ["Le opere del Louvre", "louvre-", 9],
+    ["Le opere dell’Orangerie", "orangerie-", 3],
+    ["Le opere del Musée d’Orsay", "orsay-", 11],
+  ] as const) {
+    const collage = page.getByRole("region", { name, exact: true });
+    await expect(collage.locator(".photo-open img")).toHaveCount(count);
+    const sources = await collage
+      .locator(".photo-open img")
+      .evaluateAll((images) =>
+        images.map((img) => img.getAttribute("src") || ""),
+      );
+    expect(sources.every((src) => src.includes(prefix))).toBe(true);
+  }
+  await expect(page.locator(".souvenir-note")).toContainText(
+    "pochette in stoffa",
+  );
+  await expect(page.locator(".souvenir-note")).toContainText("Montmartre");
+  await expect(
+    page
+      .getByRole("region", {
+        name: "La nostra tappa da Cédric Grolet",
+        exact: true,
+      })
+      .locator(".photo-open img"),
+  ).toHaveCount(2);
+  await expect(
+    page
+      .getByRole("region", {
+        name: "Il negozio delle nostre caramelle francesi",
+        exact: true,
+      })
+      .locator(".photo-open img"),
+  ).toHaveCount(1);
+  await expect(page.locator(".souvenir-note")).toContainText(
+    "Caramelle francesi",
+  );
+  const arcPhotos = page.getByRole("region", {
+    name: "La nostra prima sera all’Arco di Trionfo",
+    exact: true,
+  });
+  const eiffelPhotos = page.getByRole("region", {
+    name: "La Torre Eiffel, da vicino",
+    exact: true,
+  });
+  const riverPhotos = page.getByRole("region", {
+    name: "La nostra Parigi di notte",
+    exact: true,
+  });
+  await expect(
+    arcPhotos.locator('img[src*="parigi-notte-insieme"]'),
+  ).toHaveCount(1);
+  await expect(arcPhotos.locator(".photo-open img")).toHaveCount(4);
+  await expect(riverPhotos.locator(".photo-open img")).toHaveCount(1);
+  await expect(
+    riverPhotos.locator('img[src*="parigi-notte-insieme"]'),
+  ).toHaveCount(0);
+  await expect(eiffelPhotos.locator(".photo-open img")).toHaveCount(5);
+  await expect(eiffelPhotos.locator('img[src*="parigi-vie-"]')).toHaveCount(2);
+  await expect(
+    page.getByRole("region", {
+      name: "Tra le vie intorno all’Opéra",
+      exact: true,
+    }),
+  ).toHaveCount(0);
+  await expect(
+    page
+      .getByRole("region", { name: "Dentro il 59 Rivoli", exact: true })
+      .locator(".photo-grid--pair"),
+  ).toHaveCount(1);
+  const painting = page.getByRole("button", {
+    name: "Ingrandisci: La Libertà che guida il popolo",
+    exact: true,
+  });
+  await painting.click();
+  const paintingsDialog = page.getByRole("dialog", {
+    name: "Le opere del Louvre",
+    exact: true,
+  });
+  await expect(paintingsDialog).toBeVisible();
+  await expect(
+    paintingsDialog.getByRole("button", { name: "Foto successiva" }),
+  ).toBeDisabled();
+  await page.keyboard.press("ArrowLeft");
+  await expect(
+    paintingsDialog.getByText("Noi due davanti al dipinto", { exact: true }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(painting).toBeFocused();
+  await page
+    .locator(".route-stops")
+    .getByRole("link", { name: "Un ultimo giro", exact: true })
+    .click();
+  await expect(page).toHaveURL(/#giorno-5$/);
+  await decodeImages();
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await noOverflow();
+    const proportions = await page
+      .locator(".photo-grid--museum .photo-open img")
+      .evaluateAll((images) =>
+        images.every((img) => {
+          if (!(img instanceof HTMLImageElement)) return false;
+          const rect = img.getBoundingClientRect();
+          return (
+            Math.abs(
+              rect.width / rect.height - img.naturalWidth / img.naturalHeight,
+            ) < 0.02
+          );
+        }),
+      );
+    expect(proportions).toBe(true);
+    await page
+      .getByRole("region", { name: "Le opere dell’Orangerie", exact: true })
+      .screenshot({ path: `${output}/paris-collage-${width}.png` });
+    await page
+      .locator(".souvenir-note")
+      .screenshot({ path: `${output}/paris-souvenir-${width}.png` });
+    await page
+      .locator(".article-cover")
+      .screenshot({ path: `${output}/paris-cover-${width}.png` });
+    if (width !== 768)
+      await page.screenshot({
+        path: `${output}/paris-${width}.png`,
+        fullPage: true,
+      });
+  }
+  await page.goto(`${baseURL}/europa`, { waitUntil: "networkidle" });
+  await expect(page.locator(".trip-card")).toHaveCount(3);
+  await page.locator('.trip-card a[href="/viaggi/copenaghen"]').click();
+  await expect(
+    page.getByRole("heading", {
+      name: "Copenaghen, la città dei canali che ci ha conquistati",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".souvenir-note")).toContainText(
+    "Due piccoli personaggi LEGO",
+  );
+  await expect(page.locator(".day-card")).toHaveCount(3);
+  await decodeImages();
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await noOverflow();
+    await page
+      .locator(".related-trip")
+      .screenshot({ path: `${output}/copenhagen-malmo-link-${width}.png` });
+    await page
+      .locator(".souvenir-note")
+      .screenshot({ path: `${output}/copenhagen-souvenir-${width}.png` });
+    if (width !== 768)
+      await page.screenshot({
+        path: `${output}/copenhagen-${width}.png`,
+        fullPage: true,
+      });
+  }
+  await expect(page.locator(".photo-album")).toHaveCount(15);
+  await expect(page.locator(".photo-open img")).toHaveCount(41);
+  await expect(page.locator(".article-cover img")).toHaveAttribute(
+    "src",
+    /nyhavn-colori/,
+  );
+  await page
+    .getByRole("link", {
+      name: "Leggi il nostro racconto di Malmö",
+      exact: true,
+    })
+    .click();
+  await expect(page).toHaveURL(/\/viaggi\/malmo$/);
+  await expect(
+    page.getByRole("heading", {
+      name: "Malmö, un giorno in Svezia partendo da Copenaghen",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(page.locator(".article-meta")).toContainText("1 giorno");
+  await expect(page.locator(".article-meta")).not.toContainText("1 giorni");
+  await expect(page.locator(".souvenir-note")).toContainText("Calamite");
+  await expect(page.locator(".souvenir-note")).toContainText("Cartoline");
+  await expect(page.locator(".day-card")).toHaveCount(1);
+  await expect(page.locator(".photo-album")).toHaveCount(9);
+  await expect(page.locator(".photo-open img")).toHaveCount(25);
+  await expect(page.locator(".article-cover img")).toHaveAttribute(
+    "src",
+    /stortorget-luce/,
+  );
+  await decodeImages();
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await noOverflow();
+    if (width !== 768)
+      await page.screenshot({
+        path: `${output}/malmo-${width}.png`,
+        fullPage: true,
+      });
+  }
+  await page
+    .getByRole("link", {
+      name: "Torna al nostro viaggio a Copenaghen",
+      exact: true,
+    })
+    .click();
+  await expect(page).toHaveURL(/\/viaggi\/copenaghen#giorno-3$/);
+  await expect(
+    page.getByRole("heading", {
+      name: "Il terzo giorno, una parentesi svedese a Malmö",
+      exact: true,
+    }),
+  ).toBeVisible();
   for (const slug of ["cinque-terre", "kyoto", "dolomiti", "missing-trip"]) {
     const response = await page.goto(`${baseURL}/viaggi/${slug}`);
     expect(response?.status()).toBe(404);
