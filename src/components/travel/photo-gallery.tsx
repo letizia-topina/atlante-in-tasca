@@ -18,6 +18,9 @@ export type PhotoAlbum = {
 };
 
 export function PhotoGallery({ album }: { album: PhotoAlbum }) {
+  const isMuseum =
+    album.layout === "museum" || album.layout === "museum-centered";
+  const isCenteredMuseum = album.layout === "museum-centered";
   const dialog = useRef<HTMLDialogElement>(null);
   const [selected, setSelected] = useState<number | null>(null);
   const active = selected === null ? null : album.photos[selected];
@@ -33,16 +36,18 @@ export function PhotoGallery({ album }: { album: PhotoAlbum }) {
     );
   return (
     <section
-      className={`photo-album photo-album--${album.layout}`}
+      className={`photo-album photo-album--${album.layout}${isCenteredMuseum ? " photo-album--museum" : ""}`}
       aria-label={album.label}
     >
       <div className="album-heading">
         <span className="eyebrow">
-          {album.layout === "museum" ? "COLLAGE DAL MUSEO" : "DAL NOSTRO ALBUM"}
+          {isMuseum ? "COLLAGE DAL MUSEO" : "DAL NOSTRO ALBUM"}
         </span>
         <span>{album.label}</span>
       </div>
-      <div className={`photo-grid photo-grid--${album.layout}`}>
+      <div
+        className={`photo-grid photo-grid--${album.layout}${isCenteredMuseum ? " photo-grid--centered" : ""}`}
+      >
         {album.photos.map((entry, index) => {
           const photo = entry;
           return (
@@ -63,7 +68,7 @@ export function PhotoGallery({ album }: { album: PhotoAlbum }) {
                   height={photo.height}
                   sizes={
                     album.layout === "four" ||
-                    album.layout === "museum" ||
+                    isMuseum ||
                     album.layout === "mosaic"
                       ? "(max-width: 640px) 45vw, 240px"
                       : "(max-width: 640px) 90vw, 600px"

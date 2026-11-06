@@ -1893,3 +1893,10 @@ body:has(.photo-dialog[open]) {
     font-size: 25px;
   }
 }
+
+.vienna-skyline {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-block: 24px;
+}
