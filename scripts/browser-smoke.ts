@@ -327,7 +327,7 @@ try {
   ).toBeVisible();
   await expect(page.locator(".article-cover img")).toHaveAttribute(
     "src",
-    /louvre-piramide/,
+    /eiffel-notte/,
   );
   await expect(page.locator(".day-card")).toHaveCount(5);
   await expect(page.locator(".photo-album")).toHaveCount(20);
