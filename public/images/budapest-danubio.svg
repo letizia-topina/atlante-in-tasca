@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+<title id="title">Budapest, un ricordo sul Danubio</title>
+<desc id="desc">Il Parlamento, un ponte e una barca sul fiume, illustrati nei colori caldi del tramonto.</desc>
+<rect width="1200" height="600" fill="#eee6d5"/>
+<circle cx="882" cy="175" r="106" fill="#dbb170"/>
+<path d="M0 340Q180 270 365 330T730 319T1200 334V460H0Z" fill="#c5ccb5"/>
+<g fill="#dbccb1" stroke="#aa9475" stroke-width="3" stroke-linejoin="round">
+<path d="M355 382V260H490V226H535V194H557V142H576V112L600 70L624 112V142H643V194H665V226H710V260H845V382Z"/>
+<path d="M355 260V224L370 202L385 224V260M815 260V224L830 202L845 224V260"/>
+<path d="M490 226V194L506 171L522 194V226M678 226V194L694 171L710 194V226"/>
+<path d="M557 194Q600 107 643 194Z" fill="#b87860"/>
+<path d="M576 142H624M570 157H630M562 177H638" fill="none"/>
+<path d="M552 382V286Q600 226 648 286V382" fill="#b87860"/>
+<path d="M584 382V318Q600 290 616 318V382" fill="#f4e8ce"/>
+<path d="M400 285V324M427 285V324M454 285V324M746 285V324M773 285V324M800 285V324" fill="none" stroke="#87957c" stroke-width="10"/>
+<path d="M384 344V368M414 344V368M444 344V368M474 344V368M504 344V368M534 344V368M666 344V368M696 344V368M726 344V368M756 344V368M786 344V368M816 344V368" fill="none" stroke="#87957c" stroke-width="8"/>
+<path d="M355 271H545M655 271H845M355 337H546M654 337H845" fill="none"/>
+<path d="M600 70V49" fill="none"/>
+</g>
+<g fill="#cbbd9d" stroke="#9d957b" stroke-width="3">
+<path d="M52 354V298H105V354M115 354V278H174V354M184 354V309H245V354"/>
+<path d="M52 298L78 278L105 298M115 278L145 255L174 278M184 309L214 286L245 309" fill="#b9846b"/>
+<path d="M919 354V297H975V354M985 354V268H1042V354M1052 354V293H1118V354"/>
+<path d="M919 297L947 275L975 297M985 268L1014 245L1042 268M1052 293L1085 267L1118 293" fill="#b9846b"/>
+</g>
+<path d="M0 396Q255 370 600 396T1200 390V600H0Z" fill="#b4cbc1"/>
+<path d="M0 460Q260 424 560 454T1200 446M0 541Q260 516 630 541T1200 525" fill="none" stroke="#8cafaa" stroke-width="3"/>
+<path d="M715 420H1029M762 441H1003M812 461H955" fill="none" stroke="#dec69a" stroke-width="5" stroke-linecap="round"/>
+<g fill="#ede2c8" stroke="#7e8a74" stroke-width="4" stroke-linejoin="round">
+<path d="M-15 423H425V440H-15Z" fill="#9b987c"/>
+<path d="M64 423V331H97V423M290 423V331H323V423"/>
+<path d="M61 331H100V319H61ZM287 331H326V319H287Z"/>
+<path d="M-15 351Q21 403 80 352Q195 442 306 352Q371 405 425 351" fill="none"/>
+<path d="M25 392V423M50 398V423M115 378V423M145 398V423M175 410V423M205 413V423M235 403V423M265 384V423M345 392V423M375 398V423M405 374V423" fill="none" stroke-width="2"/>
+</g>
+<g transform="translate(583 491)" stroke="#7c8e7b" stroke-width="3" stroke-linejoin="round">
+<path d="M-99 0H99L73 30H-65Z" fill="#f6edd9"/>
+<path d="M-63 0V-37H60V0Z" fill="#e6d1ad"/>
+<path d="M-37-37V-54H39V-37" fill="#f6edd9"/>
+<path d="M-44-26H-24V-11H-44ZM-9-26H11V-11H-9ZM26-26H46V-11H26Z" fill="#9db9b0" stroke-width="2"/>
+<path d="M-48 43H65M-75 54H40" fill="none" stroke="#8cafaa"/>
+</g>
+<g fill="#8f9c7b"><path d="M1100 352L1117 288L1134 352Z"/><path d="M1132 360L1155 277L1178 360Z"/></g>
+<g fill="#a4a78a"><path d="M218 108q10-11 20 0q10-11 20 0q-10-5-20 5q-10-10-20-5Z"/><path d="M276 132q8-9 16 0q8-9 16 0q-8-4-16 4q-8-8-16-4Z"/></g>
+</svg>

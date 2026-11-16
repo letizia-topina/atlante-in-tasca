@@ -10,6 +10,12 @@ import { TripPhotos } from "@/components/travel/trip-photos";
 import { SouvenirNote } from "@/components/travel/souvenir-note";
 import { RelatedTrip } from "@/components/travel/related-trip";
 import { CopenhagenPhotos } from "@/components/travel/copenaghen-photos";
+import {
+  BudapestOverview,
+  BudapestDays,
+  BudapestTreasure,
+} from "@/components/travel/budapest-itinerary";
+import { BudapestPhotos } from "@/components/travel/budapest-photos";
 import { ViennaPhotos } from "@/components/travel/vienna-photos";
 import {
   ViennaOverview,
@@ -119,6 +125,10 @@ export default async function TripPage({
             ViennaPhotos,
             ViennaOverview,
             ViennaDays,
+            BudapestOverview,
+            BudapestDays,
+            BudapestTreasure,
+            BudapestPhotos,
             CostieraPhotos,
             CostieraRoute,
             CostieraDays,

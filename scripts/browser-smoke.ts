@@ -27,7 +27,7 @@ try {
       ),
     ).toBe(true);
   await page.goto(baseURL, { waitUntil: "networkidle" });
-  await expect(page.locator(".trip-card")).toHaveCount(7);
+  await expect(page.locator(".trip-card")).toHaveCount(8);
   await expect(page.getByRole("heading", { name: title })).toBeVisible();
   await expect(
     page.getByRole("button", { name: "Europa", exact: true }),
@@ -297,7 +297,7 @@ try {
   }
   await page.goto(baseURL, { waitUntil: "networkidle" });
   await page.getByRole("button", { name: "Europa", exact: true }).click();
-  await expect(page.locator(".trip-card")).toHaveCount(4);
+  await expect(page.locator(".trip-card")).toHaveCount(5);
   await page.locator(".europe-category-link").click();
   await expect(page).toHaveURL(/\/europa$/);
   await expect(
@@ -306,7 +306,7 @@ try {
       exact: true,
     }),
   ).toBeVisible();
-  await expect(page.locator(".trip-card")).toHaveCount(4);
+  await expect(page.locator(".trip-card")).toHaveCount(5);
   await page.locator('.trip-card a[href="/viaggi/vienna-natale"]').click();
   await expect(page.locator("h1")).toHaveText(
     "Vienna a Natale, tre giorni tra mercatini e meraviglie",
@@ -461,7 +461,7 @@ try {
       });
   }
   await page.goto(`${baseURL}/europa`, { waitUntil: "networkidle" });
-  await expect(page.locator(".trip-card")).toHaveCount(4);
+  await expect(page.locator(".trip-card")).toHaveCount(5);
   await page.locator('.trip-card a[href="/viaggi/copenaghen"]').click();
   await expect(
     page.getByRole("heading", {
